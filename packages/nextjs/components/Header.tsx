@@ -101,7 +101,11 @@ export const Header = () => {
           <HeaderMenuLinks />
         </ul>
       </div>
+<<<<<<< Updated upstream
       <div className="navbar-end flex-grow mr-4">
+=======
+      <div className="navbar-end flex-grow mr-4 text-xl text-white">
+>>>>>>> Stashed changes
         <RainbowKitCustomConnectButton />
         <FaucetButton />
       </div>

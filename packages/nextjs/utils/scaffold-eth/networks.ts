@@ -31,6 +31,7 @@ export const RPC_CHAIN_NAMES: Record<number, string> = {
   [chains.base.id]: "base-mainnet",
   [chains.baseGoerli.id]: "base-goerli",
   [chains.baseSepolia.id]: "base-sepolia",
+  [chains.gnosisChiado.id]: "gnosisChiado"
 };
 
 export const getAlchemyHttpUrl = (chainId: number) => {
@@ -51,6 +52,9 @@ export const NETWORKS_EXTRA_DATA: Record<string, ChainAttributes> = {
   },
   [chains.gnosis.id]: {
     color: "#48a9a6",
+  },
+  [chains.gnosisChiado.id]: {
+    color: "#fff",
   },
   [chains.polygon.id]: {
     color: "#2bbdf7",
