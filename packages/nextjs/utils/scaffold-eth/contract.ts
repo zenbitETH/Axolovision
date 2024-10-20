@@ -131,13 +131,13 @@ export type WriteAbiStateMutability = "nonpayable" | "payable";
 
 export type FunctionNamesWithInputs<
   TContractName extends ContractName,
-  TAbiStateMutability extends AbiStateMutability = AbiStateMutability,
+  TAbiStateMutibility extends AbiStateMutability = AbiStateMutability,
 > = Exclude<
   Extract<
     ContractAbi<TContractName>[number],
     {
       type: "function";
-      stateMutability: TAbiStateMutability;
+      stateMutability: TAbiStateMutibility;
     }
   >,
   {
@@ -149,14 +149,14 @@ type Expand<T> = T extends object ? (T extends infer O ? { [K in keyof O]: O[K] 
 
 type UnionToIntersection<U> = Expand<(U extends any ? (k: U) => void : never) extends (k: infer I) => void ? I : never>;
 
-type OptionalTuple<T> = T extends readonly [infer H, ...infer R] ? readonly [H | undefined, ...OptionalTuple<R>] : T;
+type OptionalTupple<T> = T extends readonly [infer H, ...infer R] ? readonly [H | undefined, ...OptionalTupple<R>] : T;
 
 type UseScaffoldArgsParam<
   TContractName extends ContractName,
   TFunctionName extends ExtractAbiFunctionNames<ContractAbi<TContractName>>,
 > = TFunctionName extends FunctionNamesWithInputs<TContractName>
   ? {
-      args: OptionalTuple<UnionToIntersection<AbiFunctionArguments<ContractAbi<TContractName>, TFunctionName>>>;
+      args: OptionalTupple<UnionToIntersection<AbiFunctionArguments<ContractAbi<TContractName>, TFunctionName>>>;
       value?: ExtractAbiFunction<ContractAbi<TContractName>, TFunctionName>["stateMutability"] extends "payable"
         ? bigint | undefined
         : undefined;

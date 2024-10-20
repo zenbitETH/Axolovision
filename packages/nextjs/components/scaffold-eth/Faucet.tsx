@@ -55,7 +55,7 @@ export const Faucet = () => {
   }, []);
 
   const sendETH = async () => {
-    if (!faucetAddress || !inputAddress) {
+    if (!faucetAddress) {
       return;
     }
     try {
@@ -64,6 +64,7 @@ export const Faucet = () => {
         to: inputAddress,
         value: parseEther(sendValue as `${number}`),
         account: faucetAddress,
+        chain: hardhat,
       });
       setLoading(false);
       setInputAddress(undefined);
@@ -98,7 +99,7 @@ export const Faucet = () => {
             <div className="flex space-x-4">
               <div>
                 <span className="text-sm font-bold">From:</span>
-                <Address address={faucetAddress} onlyEnsOrAddress />
+                <Address address={faucetAddress} />
               </div>
               <div>
                 <span className="text-sm font-bold pl-3">Available:</span>
@@ -109,7 +110,7 @@ export const Faucet = () => {
               <AddressInput
                 placeholder="Destination Address"
                 value={inputAddress ?? ""}
-                onChange={value => setInputAddress(value as AddressType)}
+                onChange={value => setInputAddress(value)}
               />
               <EtherInput placeholder="Amount to send" value={sendValue} onChange={value => setSendValue(value)} />
               <button className="h-10 btn btn-primary btn-sm px-2 rounded-full" onClick={sendETH} disabled={loading}>
