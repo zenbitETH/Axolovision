@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Silkscreen:wght@400;700&display=swap');
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
@@ -29,4 +30,13 @@ p {
 
 .btn.btn-ghost {
   @apply shadow-none;
+}
+
+button {
+  @apply bg-lote hover:bg-sun w-fit px-3 py-2 text-white hover:text-lote text-xl font-semibold
+}
+
+.closeBT {
+  @apply
+  bg-axo hover:bg-black hover:text-axo text-white h-12 w-12 rounded-full absolute -top-2 -right-2 font-bold font-silk
 }

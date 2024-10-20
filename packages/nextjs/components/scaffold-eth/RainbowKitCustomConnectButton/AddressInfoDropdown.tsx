@@ -48,7 +48,10 @@ export const AddressInfoDropdown = ({
   return (
     <>
       <details ref={dropdownRef} className="dropdown dropdown-end leading-3">
-        <summary tabIndex={0} className="btn btn-secondary btn-sm pl-0 pr-2 shadow-md dropdown-toggle gap-0 !h-auto">
+        <summary
+          tabIndex={0}
+          className="btn btn-secondary dark:hover:bg-black/20 btn-sm pl-0 pr-2 shadow-md dropdown-toggle gap-0 !h-auto"
+        >
           <BlockieAvatar address={checkSumAddress} size={30} ensImage={ensAvatar} />
           <span className="ml-2 mr-1">
             {isENS(displayName) ? displayName : checkSumAddress?.slice(0, 6) + "..." + checkSumAddress?.slice(-4)}
@@ -57,14 +60,14 @@ export const AddressInfoDropdown = ({
         </summary>
         <ul
           tabIndex={0}
-          className="dropdown-content menu z-[2] p-2 mt-2 shadow-center shadow-accent bg-base-200 rounded-box gap-1"
+          className="dropdown-content menu z-[2] p-2 mt-2 shadow-center shadow-accent bg-sun rounded-box gap-1"
         >
           <NetworkOptions hidden={!selectingNetwork} />
           <li className={selectingNetwork ? "hidden" : ""}>
             {addressCopied ? (
               <div className="btn-sm !rounded-xl flex gap-3 py-3">
                 <CheckCircleIcon
-                  className="text-xl font-normal h-6 w-4 cursor-pointer ml-2 sm:ml-0"
+                  className="text-xl font-ral h-6 w-4 cursor-pointer ml-2 sm:ml-0"
                   aria-hidden="true"
                 />
                 <span className=" whitespace-nowrap">Copy address</span>
@@ -81,7 +84,7 @@ export const AddressInfoDropdown = ({
               >
                 <div className="btn-sm !rounded-xl flex gap-3 py-3">
                   <DocumentDuplicateIcon
-                    className="text-xl font-normal h-6 w-4 cursor-pointer ml-2 sm:ml-0"
+                    className="text-xl font-ral h-6 w-4 cursor-pointer ml-2 sm:ml-0"
                     aria-hidden="true"
                   />
                   <span className=" whitespace-nowrap">Copy address</span>
